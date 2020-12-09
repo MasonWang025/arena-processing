@@ -36,20 +36,19 @@ public class Walls {
             if (walls[i][4] == 1)
                 fill(255, 0, 0);
             
-            if (p.x+p.xv+p.size>walls[i][0] && p.x+p.xv<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3]) {
-      p.xv=0;
-    }
+            if (p.x+p.xv+p.size>walls[i][0] && p.x+p.xv<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3])
+                p.xv=0;
 
-    if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.yv+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3]) {
-      p.yv=0;
-      p.gravity=0;
-      p.falling = false;
-    }
+            if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.yv+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3]) {
+                p.yv=0;
+                p.gravity=0;
+                p.falling = false;
+            }
 
-    if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y+p.yv<walls[i][1]+walls[i][3]) {
-      p.yv=0;
-      p.gravity=0;
-    }
+            if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y+p.yv<walls[i][1]+walls[i][3]) {
+                p.yv=0;
+                p.gravity=0;
+            }
 
             rect(walls[i][0], walls[i][1], walls[i][2], walls[i][3]);
         }

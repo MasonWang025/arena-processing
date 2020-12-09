@@ -1,13 +1,15 @@
 public class Player {
     float x, y, xv, yv, speed, size;
-    float gravity;
+    float gravity, gravityForce, jumpForce;
     boolean falling = true; 
 
     Player(float x, float y) {
         this.x = x;
         this.y = y;
-        this.speed = 5; 
-        this.size = 25;
+        speed = 5; 
+        size = 25;
+        gravityForce = 0.4;
+        jumpForce = 10;
     }
 
     void update(boolean left, boolean right, boolean up) {
@@ -21,9 +23,9 @@ public class Player {
         if (right)
             xv = speed;
         if (up && !falling)
-            gravity -= 7;
+            gravity -= jumpForce;
         yv += gravity;
-        gravity += 0.5;
+        gravity += gravityForce;
 
         falling = true;
     } 

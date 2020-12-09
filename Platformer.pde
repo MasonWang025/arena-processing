@@ -9,7 +9,7 @@ void setup() {
 
   noStroke();
   noSmooth();
-  frameRate(30);
+  frameRate(60);
 }
 
 void draw() {
@@ -17,7 +17,7 @@ void draw() {
   
   p1.update(keys[LEFT], keys[RIGHT], keys[UP]);
   p2.update(keys['A'], keys['D'], keys['W']);
-  
+
   w.update(p1);
   w.update(p2);
 
