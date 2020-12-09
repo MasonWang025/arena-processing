@@ -35,17 +35,21 @@ public class Walls {
 
             if (walls[i][4] == 1)
                 fill(255, 0, 0);
+
+            int wallRight = walls[i][0]+walls[i][2];
+            int wallBottom = walls[i][1]+walls[i][3];
+            boolean inXRange = p.x+p.size > walls[i][0] && p.x < wallRight;
             
-            if (p.x+p.xv+p.size>walls[i][0] && p.x+p.xv<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3])
+            if (p.x+p.xv+p.size > walls[i][0] && p.x+p.xv < wallRight && p.y+p.size > walls[i][1] && p.y<wallBottom)
                 p.xv=0;
 
-            if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.yv+p.size>walls[i][1] && p.y<walls[i][1]+walls[i][3]) {
+            if (inXRange && p.y+p.yv+p.size > walls[i][1] && p.y < wallBottom) {
                 p.yv=0;
                 p.gravity=0;
                 p.falling = false;
             }
 
-            if (p.x+p.size>walls[i][0] && p.x<walls[i][0]+walls[i][2] && p.y+p.size>walls[i][1] && p.y+p.yv<walls[i][1]+walls[i][3]) {
+            if (inXRange && p.y+p.size > walls[i][1] && p.y+p.yv < wallBottom) {
                 p.yv=0;
                 p.gravity=0;
             }
