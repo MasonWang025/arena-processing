@@ -11,9 +11,14 @@ public class Player {
   // shooting
   ArrayList<Bullet> bullets;
   boolean canShoot;
+  color bColor;
   float bulletV;
   int reloadTimer;
   int reloadTime;
+   
+  // powerup
+  int powerup  = -1;
+  int powerupTimer; // time left
 
   Player(float x, float y, ArrayList<Bullet> bullets, color body, color eyes) {
     this.x = x;
@@ -27,13 +32,13 @@ public class Player {
     jumpForce = 10;
     bulletV = 16;
     reloadTime = 25;
+    bColor = #000000;
   }
 
   void update(boolean left, boolean right, boolean up, boolean shoot) {
     // reset to zero velocity
     xv = 0;
     yv = 0;
-    text(jumpTimer, 100, 100);
 
     if (falling)
       jumpTimer++;
@@ -56,7 +61,7 @@ public class Player {
     if (shoot && canShoot) {
       float v = this.left ? -bulletV : bulletV;
       float sx = this.left ? x - size - 10 : x + size + 10;
-      bullets.add(new Bullet(sx, y + (size/2), v, 0, 6.9));
+      bullets.add(new Bullet(sx, y + (size/2), v, 0, 6.9, bColor));
       canShoot = false;
     }
 
@@ -94,5 +99,23 @@ public class Player {
 
     rect(xd1, y+5+gravity/2.1, 3, 10);
     rect(xd2, y+5+gravity/2.1, 3.2, 10);
+    
+    if (powerup < 0 || powerupTimer < 0)  {
+      bulletV = 16;
+      reloadTime = 25;
+      bColor = #000000;
+      powerup = -1;
+      return;
+    }
+    switch (powerup) {
+      case 1:
+        fill(#4a99ff);
+        break;
+      case 2:
+        fill(#e95eff);
+        break;
+    }
+    ellipse(x + size/2, y - 12, 9, 9);
+    powerupTimer -= 1;
   }
 }

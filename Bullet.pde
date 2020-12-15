@@ -1,13 +1,15 @@
 public class Bullet {
     float x, y, v, size;
     int type;
+    color bColor;
 
-    Bullet(float x, float y, float v, int type, float size) {
+    Bullet(float x, float y, float v, int type, float size, color bColor) {
         this.x = x;
         this.y = y;
         this.v = v;
         this.type = type;
         this.size = size;
+        this.bColor = bColor;
     }
 
     boolean hitWall(int[][] walls) {
@@ -39,7 +41,7 @@ public class Bullet {
     void draw() {
         x += v;
 
-        fill(255, 0, 0);
+        fill(bColor);
 
         ellipse(x, y, size, size);
     }

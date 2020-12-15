@@ -13,13 +13,16 @@ public class Walls {
     int[][] walls = {
         {0, 0, w, t, 0}, // top boundary
         {0, h-t, w, t, 0},  // bottom boundary
-        {0, 0, t, h, 0}, // left boundary
+        {0, 0, t, h, 1}, // left boundary
         {w-t, 0, t, h, 0}, // right boundary
         {150, 700, t, h-700-t, 0}, // left bottom vertical
         {w-150-t, 700, t, h-700-t, 0}, // right ^
         {250, 500, w-500-t, t, 0}, // center platform 1
         {100, 625, 130, t, 0}, // left bottom vertical
         {w-230, 625, 130, t, 0},
+        {400, 400, t, 55, 1},
+        {600, 200, 150, t, 1},
+        {50, 300, 170, t, 0},
     };
     
     void update(Player p) {
