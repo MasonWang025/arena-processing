@@ -51,7 +51,7 @@ public class Powerup {
           p.powerupTimer = 500;
           break;
         case 2: 
-          p.bulletV = 10;
+          p.bulletV = 8;
           p.reloadTime = 1;
           p.bColor = c1;
           p.powerupTimer = 250;

@@ -60,7 +60,7 @@ public class Player {
 
     if (shoot && canShoot) {
       float v = this.left ? -bulletV : bulletV;
-      float sx = this.left ? x - size - 10 : x + size + 10;
+      float sx = this.left ? x - size - 5 : x + size + 10;
       bullets.add(new Bullet(sx, y + (size/2), v, 0, 6.9, bColor));
       canShoot = false;
     }
